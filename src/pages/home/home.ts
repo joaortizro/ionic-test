@@ -10,26 +10,28 @@ import {UsersProvider} from '../../providers/users/users'
 })
 export class HomePage {
 
-  private users:any;
+  public users:any;
+  public info:any;
+
 
   constructor(public navCtrl: NavController , public usersProvider : UsersProvider) {
 
   }
 
-  goToPage1(){
-    this.navCtrl.push(Page1Page);
-  }
 
-  loadUsers(){
-    return this.usersProvider.getUsers().subscribe( (result)=>{
-      this.users=result;
-      console.log(this.users)
+
+  loadUser(){
+    return this.usersProvider.getUsers().subscribe( (response)=>{
+      this.users=response.results;
+      this.info=response.info;
+      console.log(this.users);
+      console.log(this.info);
     }
     )
   }
 
   ngOnInit(){
-    this.loadUsers();
+    this.loadUser();
   }
 
 }

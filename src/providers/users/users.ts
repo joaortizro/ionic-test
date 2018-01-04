@@ -15,14 +15,14 @@ import "rxjs/Rx";
 @Injectable()
 export class UsersProvider {
 
-  private usersURL="https://jsonplaceholder.typicode.com/users"
+  private apiURL="https://randomuser.me/api/"
 
   constructor(public http: Http) {
 
   }
 
   getUsers(){
-    return this.http.get(this.usersURL).map((response : Response )=>{
+    return this.http.get(this.apiURL).map((response : Response)=>{
       return response.json();
 
     }
@@ -37,7 +37,7 @@ export class UsersProvider {
       errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
     } else {
       errMsg = error.message ? error.message : error.toString();
-    // alert(errMsg);
+
     }
     console.error(errMsg);
     return Observable.throw(errMsg);

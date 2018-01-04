@@ -7,33 +7,29 @@
 </ion-header>
 
 <ion-content>
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-list>
-        <ion-item *ngFor="let user of users">
-          <ion-card>
-            <ion-card-header>
-                {{user.username}}
-            </ion-card-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-card *ngFor="let user of users">
+            <img src="{{user.picture.large}}" alt="">
             <ion-card-content>
-                {{user.phone}}
+              <ion-card-title text-capitalize>
+                {{user.name.title}} {{user.name.first}} {{ user.name.last}}
+                <ion-icon name="male"  *ngIf="user.gender=='male'" float-right></ion-icon>
+                <ion-icon name="female" *ngIf="user.gender=='female'"float-right></ion-icon>
+              </ion-card-title>
+              <p >
+                <ion-icon name="locate"></ion-icon> <b>City:</b> {{user.location.city}}  <b>State:</b> {{user.location.state}}
                 <br>
-                {{user.website}}
+                <ion-icon name="call"></ion-icon> {{user.phone}} | {{user.cell}}
+                <br>
+                <ion-icon name="mail"></ion-icon> {{user.email}}
+              </p>
+
             </ion-card-content>
-            </ion-card>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
+          </ion-card>
+      </ion-col>
+    </ion-row>
 
-  <ion-row>
-      <button (click)="goToPage1()">
-      Page 1
-    </button>
-  </ion-row>
-</ion-grid>
+  </ion-grid>
 </ion-content>
-
-
-
