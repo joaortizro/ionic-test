@@ -15,7 +15,7 @@ import "rxjs/Rx";
 @Injectable()
 export class UsersProvider {
 
-  private apiURL="https://randomuser.me/api/"
+  private apiURL="https://randomuser.me/api/?results=10"
 
   constructor(public http: Http) {
 

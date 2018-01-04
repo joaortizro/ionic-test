@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {Page1Page} from '../page1/page1';
+import {UserPage} from '../user/user'
 import {UsersProvider} from '../../providers/users/users'
 
 
@@ -32,6 +32,9 @@ export class HomePage {
 
   ngOnInit(){
     this.loadUser();
+  }
+  goToProfile(selectedUser){
+    this.navCtrl.push(UserPage,{selectedUser})
   }
 
 }

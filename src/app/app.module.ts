@@ -11,6 +11,8 @@ import {Page1PageModule} from '../pages/page1/page1.module';
 import { UsersProvider } from '../providers/users/users';
 import { HttpModule } from '@angular/http'
 
+import {UserPageModule} from '../pages/user/user.module'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -19,7 +21,7 @@ import { HttpModule } from '@angular/http'
   imports: [
     BrowserModule,
     Page1PageModule,
-
+    UserPageModule,
     IonicModule.forRoot(MyApp),
      HttpModule,
 
