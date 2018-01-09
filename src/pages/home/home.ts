@@ -19,12 +19,10 @@ export class HomePage {
   }
 
   public loadUser() {
-    this.usersProvider.getUsers().then((res)=>{
-      this.users=res;
+    this.usersProvider.getUsers().then(res => {
+      this.users= res.results;
     });
-
   }
-
 
   public goToProfile(selectedUser) {
     this.navCtrl.push(UserPage, { selectedUser });
