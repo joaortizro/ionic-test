@@ -7,7 +7,7 @@ export class UserProvider {
 
   constructor(public http: HttpClient) {}
 
-  getUsers() {
+  public getUsers() {
     return new Promise((resolve, reject) => {
       this.http.get(this.apiURL).subscribe(
         (response: any) => {
