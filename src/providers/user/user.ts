@@ -11,7 +11,7 @@ export class UserProvider {
     return new Promise((resolve, reject) => {
       this.http.get(this.apiURL).subscribe(
         (response: any) => {
-          resolve(response);
+          resolve(response.results);
         },
         (exception: any) => {
           reject(exception);

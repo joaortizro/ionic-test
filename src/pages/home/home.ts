@@ -20,7 +20,7 @@ export class HomePage {
 
   public loadUser() {
     this.usersProvider.getUsers().then(res => {
-      this.users= res.results;
+      this.users= res;
     });
   }
 
