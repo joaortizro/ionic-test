@@ -1,33 +1,22 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
+
+import {HttpClient , HttpResponseBase} from '@angular/common/http'
 import "rxjs/Rx";
 
 @Injectable()
 export class UsersProvider {
   private apiURL = "https://randomuser.me/api/?results=10";
 
-  constructor(public http: Http) {}
+  constructor(public http: HttpClient) {}
 
   getUsers() {
-    return this.http
-      .get(this.apiURL)
-      .map((response: Response) => {
-        return response.json();
+    return new Promise((resolve,reject)=>{
+      this.http.get(this.apiURL).toPromise().then((response: any)=>{
+          resolve(response.results)
+      }).catch((exception)=>{
+          reject(exception)
       })
-      .catch(this.handleError);
-  }
-
-  private handleError(error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || "";
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ""} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    });
   }
 }

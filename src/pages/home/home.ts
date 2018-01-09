@@ -19,12 +19,10 @@ export class HomePage {
   }
 
   public loadUser() {
-    this.usersProvider.getUsers().subscribe(response => {
-      this.users = response.results;
-      this.info = response.info;
-      console.log(this.users);
-      console.log(this.info);
+    this.usersProvider.getUsers().then((res)=>{
+      this.users=res;
     });
+
   }
 
 
