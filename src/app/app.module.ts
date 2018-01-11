@@ -11,20 +11,9 @@ import { UserPageModule } from "../pages/user/user.module";
 
 @NgModule({
   declarations: [MyApp],
-  imports: [
-    BrowserModule,
-    HomePageModule,
-    UserPageModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule
-  ],
+  imports: [BrowserModule, HomePageModule, UserPageModule, IonicModule.forRoot(MyApp), HttpClientModule],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UserProvider
-  ]
+  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }, UserProvider]
 })
 export class AppModule {}

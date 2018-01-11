@@ -1,21 +1,15 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavParams } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: 'page-user',
-  templateUrl: 'user.html',
+  selector: "page-user",
+  templateUrl: "user.html"
 })
 export class UserPage {
-  user:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.user = navParams.get('selectedUser')
-        console.log(this.user)
-
+  public user: any;
+  public selectedUser: any;
+  constructor(public navParams: NavParams) {
+    this.user = this.navParams.get("selectedUser");
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserPage');
-  }
-
 }

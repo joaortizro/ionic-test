@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col>
         <ion-list>
-            <button ion-item *ngFor="let user of users" text-capitalize (click)="goToProfile(user)">{{user.name.title}} {{user.name.first}}</button>
+          <button ion-item *ngFor="let user of users" text-capitalize [navPush]="pushPage" [navParams]="{selectedUser:user}">{{user.name.title}} {{user.name.first}}</button>
         </ion-list>
       </ion-col>
     </ion-row>
