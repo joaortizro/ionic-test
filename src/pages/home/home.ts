@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, IonicPage } from "ionic-angular";
 import { UserPage } from "../user/user";
 import { UserProvider } from "../../providers/user/user";
 
+@IonicPage()
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
