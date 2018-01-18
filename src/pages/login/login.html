@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button (click)="login()"> face </button>
+  <div *ngIf="isLoginSuccessfull" [navPush]="pushPage"> </div>
+
+</ion-content>

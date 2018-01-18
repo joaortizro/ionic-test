@@ -8,12 +8,13 @@ import { HomePageModule } from "../pages/home/home.module";
 import { UserProvider } from "../providers/user/user";
 import { HttpClientModule } from "@angular/common/http";
 import { UserPageModule } from "../pages/user/user.module";
-
+import { LoginPageModule } from "../pages/login/login.module"
+import { Facebook } from "@ionic-native/facebook";
 @NgModule({
   declarations: [MyApp],
-  imports: [BrowserModule, HomePageModule, UserPageModule, IonicModule.forRoot(MyApp), HttpClientModule],
+  imports: [BrowserModule, HomePageModule, UserPageModule, LoginPageModule, IonicModule.forRoot(MyApp), HttpClientModule],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }, UserProvider]
+  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }, UserProvider, Facebook]
 })
-export class AppModule {}
+export class AppModule { }
