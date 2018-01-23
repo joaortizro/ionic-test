@@ -1,27 +1,21 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-import { HomePage } from '../home/home'
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: "page-login",
+  templateUrl: "login.html"
 })
 export class LoginPage {
   public pushPage: any;
-  public isLoginSuccessful: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fb: Facebook) {
+  public userPermissions: string[] = ["public_profile", "user_friends", "email"];
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthenticationProvider) {}
+
+  public login(userPermissions) {
+    this.auth.login(userPermissions);
   }
-
-  public login() {
-    this.fb.login(['public_profile', 'email'])
-      .then((res: FacebookLoginResponse) => {
-        console.log('Logged into Facebook!', res)
-        this.isLoginSuccessful = true;
-        this.pushPage = HomePage;
-
-      })
-      .catch(e => console.log('Error logging into Facebook', e));
+  public logout() {
+    this.auth.logout();
   }
 }
